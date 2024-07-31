@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>main_windowClass</class>
+ <widget class="QMainWindow" name="main_windowClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1099</width>
+    <height>814</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>85</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>900</width>
+    <height>650</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Point Cloud Tool</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <property name="animated">
+   <bool>true</bool>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
+  <property name="dockNestingEnabled">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QVTKOpenGLNativeWidget" name="qvtkWidget" native="true">
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1099</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+    </font>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionLoad"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionClear"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="actionHelp"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuOption">
+    <property name="title">
+     <string>Option</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuTool">
+    <property name="title">
+     <string>Tool</string>
+    </property>
+    <widget class="QMenu" name="menuDe_noise">
+     <property name="title">
+      <string>De noise</string>
+     </property>
+     <addaction name="actionStatistical_Filter"/>
+     <addaction name="actionRadius_Filter"/>
+     <addaction name="actionBilateral_Filter"/>
+     <addaction name="actionCondition_Filter"/>
+    </widget>
+    <widget class="QMenu" name="menusimplification">
+     <property name="title">
+      <string>simplification</string>
+     </property>
+     <addaction name="actionRandom"/>
+     <addaction name="actionIsometry"/>
+     <addaction name="actionVoxel_Grid"/>
+    </widget>
+    <widget class="QMenu" name="menuRegistration">
+     <property name="title">
+      <string>Registration</string>
+     </property>
+     <addaction name="actionIA_RANSC"/>
+     <addaction name="actionNDT"/>
+     <addaction name="actionICP"/>
+    </widget>
+    <widget class="QMenu" name="menuSmooth">
+     <property name="title">
+      <string>Smooth</string>
+     </property>
+     <addaction name="actionGaussian"/>
+     <addaction name="actionMLS"/>
+    </widget>
+    <addaction name="menuDe_noise"/>
+    <addaction name="menusimplification"/>
+    <addaction name="menuRegistration"/>
+    <addaction name="menuSmooth"/>
+    <addaction name="actionRepair"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionData"/>
+    <addaction name="actionProperty"/>
+    <addaction name="actionConsole"/>
+    <addaction name="actionPointsViewer"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuTool"/>
+   <addaction name="menuView"/>
+   <addaction name="menuOption"/>
+   <addaction name="menuAbout"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QDockWidget" name="consoleDock">
+   <property name="minimumSize">
+    <size>
+     <width>200</width>
+     <height>140</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>524287</width>
+     <height>140</height>
+    </size>
+   </property>
+   <property name="windowTitle">
+    <string>Console</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="QWidget" name="dock_consoleTable">
+    <layout class="QVBoxLayout" name="verticalLayout_5">
+     <item>
+      <widget class="QTableWidget" name="consoleTable">
+       <property name="showGrid">
+        <bool>false</bool>
+       </property>
+       <property name="gridStyle">
+        <enum>Qt::SolidLine</enum>
+       </property>
+       <property name="rowCount">
+        <number>0</number>
+       </property>
+       <property name="columnCount">
+        <number>3</number>
+       </property>
+       <attribute name="horizontalHeaderVisible">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>200</number>
+       </attribute>
+       <attribute name="horizontalHeaderStretchLastSection">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="verticalHeaderVisible">
+        <bool>false</bool>
+       </attribute>
+       <column>
+        <property name="text">
+         <string>Time</string>
+        </property>
+        <property name="textAlignment">
+         <set>AlignLeading|AlignVCenter</set>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Operation</string>
+        </property>
+        <property name="textAlignment">
+         <set>AlignLeading|AlignVCenter</set>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Note</string>
+        </property>
+        <property name="textAlignment">
+         <set>AlignLeading|AlignVCenter</set>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionOpen"/>
+   <addaction name="actionSave"/>
+   <addaction name="actionClear"/>
+   <addaction name="separator"/>
+   <addaction name="actionResample"/>
+   <addaction name="actionStatistical_Filter"/>
+   <addaction name="actionBilateral_Filter"/>
+   <addaction name="actionVoxel_Grid"/>
+   <addaction name="actionRepair"/>
+  </widget>
+  <widget class="QDockWidget" name="dataDock">
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="windowTitle">
+    <string>PointCloud</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidge_dataTree">
+    <layout class="QVBoxLayout" name="verticalLayout_6">
+     <item>
+      <widget class="QTreeWidget" name="dataTree">
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::CustomContextMenu</enum>
+       </property>
+       <column>
+        <property name="text">
+         <string>Point Cloud Data</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <action name="actionOpen">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/Open.png</normaloff>:/Resources/images/Open.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="statusTip">
+    <string>open a exsting file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/Save.png</normaloff>:/Resources/images/Save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="statusTip">
+    <string>save the file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionResample">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/Cube.png</normaloff>:/Resources/images/Cube.png</iconset>
+   </property>
+   <property name="text">
+    <string>Resample</string>
+   </property>
+   <property name="toolTip">
+    <string>Resample</string>
+   </property>
+   <property name="statusTip">
+    <string>generate a cube point cloud</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/help.png</normaloff>:/Resources/images/help.png</iconset>
+   </property>
+   <property name="text">
+    <string>Help</string>
+   </property>
+   <property name="statusTip">
+    <string>show help information</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/about.png</normaloff>:/Resources/images/about.png</iconset>
+   </property>
+   <property name="text">
+    <string>About</string>
+   </property>
+   <property name="statusTip">
+    <string>show some information of the software</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionTransform">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/Change.png</normaloff>:/Resources/images/Change.png</iconset>
+   </property>
+   <property name="text">
+    <string>File Type Transform</string>
+   </property>
+   <property name="toolTip">
+    <string>File Type Transform</string>
+   </property>
+   <property name="statusTip">
+    <string>change the format of the file</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/exit.png</normaloff>:/Resources/images/exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="action_Noise_reduction">
+   <property name="text">
+    <string>De noise</string>
+   </property>
+  </action>
+  <action name="action_Streamlining">
+   <property name="text">
+    <string>Streamlining</string>
+   </property>
+  </action>
+  <action name="actionData">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Data Manager</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionProperty">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Property Manager</string>
+   </property>
+  </action>
+  <action name="actionConsole">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Console</string>
+   </property>
+  </action>
+  <action name="actionClear">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/Clear.png</normaloff>:/Resources/images/Clear.png</iconset>
+   </property>
+   <property name="text">
+    <string>Clear</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionMeshsurface">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/Mesh.png</normaloff>:/Resources/images/Mesh.png</iconset>
+   </property>
+   <property name="text">
+    <string>Surface</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionWireframe">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/Frame.png</normaloff>:/Resources/images/Frame.png</iconset>
+   </property>
+   <property name="text">
+    <string>Wireframe</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionSaveBinary">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/Resources/images/saveBinary.png</normaloff>:/Resources/images/saveBinary.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save as binary</string>
+   </property>
+   <property name="statusTip">
+    <string>Save point cloud as binary file</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionProjection">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/projection.png</normaloff>:/Resources/images/projection.png</iconset>
+   </property>
+   <property name="text">
+    <string>Projection</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionStatisticalOutlierRemoval">
+   <property name="text">
+    <string>Statistical Outlier Removal Filter</string>
+   </property>
+   <property name="toolTip">
+    <string>Statistical Outlier Removal Filter</string>
+   </property>
+  </action>
+  <action name="actionRemovePoint">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/RemoveSelectPoint.png</normaloff>:/Resources/images/RemoveSelectPoint.png</iconset>
+   </property>
+   <property name="text">
+    <string>Remove Select Point</string>
+   </property>
+   <property name="toolTip">
+    <string>Remove Select Point</string>
+   </property>
+   <property name="shortcut">
+    <string>Meta+R</string>
+   </property>
+  </action>
+  <action name="actionPointsViewer">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Mesh Viewer</string>
+   </property>
+  </action>
+  <action name="actionSelect">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/Select.png</normaloff>:/Resources/images/Select.png</iconset>
+   </property>
+   <property name="text">
+    <string>Select</string>
+   </property>
+  </action>
+  <action name="actionRegionGrowing">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/Regiongrowing.png</normaloff>:/Resources/images/Regiongrowing.png</iconset>
+   </property>
+   <property name="text">
+    <string>Region Growing</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionPassThrough">
+   <property name="text">
+    <string>Pass Through Filter</string>
+   </property>
+  </action>
+  <action name="actionColorBasedRegionGrowing">
+   <property name="text">
+    <string>Color Based Region Growing</string>
+   </property>
+  </action>
+  <action name="action_Gaussian">
+   <property name="text">
+    <string>Gaussian</string>
+   </property>
+  </action>
+  <action name="actionStatistical_Filter">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/bug.png</normaloff>:/Resources/images/bug.png</iconset>
+   </property>
+   <property name="text">
+    <string>Statistical Filter</string>
+   </property>
+  </action>
+  <action name="actionRadius_Filter">
+   <property name="text">
+    <string>Radius Filter</string>
+   </property>
+  </action>
+  <action name="actionBilateral_Filter">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/savewholescan.png</normaloff>:/Resources/images/savewholescan.png</iconset>
+   </property>
+   <property name="text">
+    <string>Bilateral Filter</string>
+   </property>
+  </action>
+  <action name="actionCondition_Filter">
+   <property name="text">
+    <string>Condition Filter</string>
+   </property>
+  </action>
+  <action name="actionRandom">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/fontAwesome_bug.png</normaloff>:/Resources/images/fontAwesome_bug.png</iconset>
+   </property>
+   <property name="text">
+    <string>Random</string>
+   </property>
+  </action>
+  <action name="actionIsometry">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/iconfont-robot1.png</normaloff>:/Resources/images/iconfont-robot1.png</iconset>
+   </property>
+   <property name="text">
+    <string>Isometry</string>
+   </property>
+  </action>
+  <action name="actionVoxel_Grid">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/smooth.png</normaloff>:/Resources/images/smooth.png</iconset>
+   </property>
+   <property name="text">
+    <string>Voxel Grid</string>
+   </property>
+  </action>
+  <action name="actionRepair">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/fontAwesome_bugY.png</normaloff>:/Resources/images/fontAwesome_bugY.png</iconset>
+   </property>
+   <property name="text">
+    <string>Repair</string>
+   </property>
+  </action>
+  <action name="actionIA_RANSC">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/fontAwesome_bugRR.png</normaloff>:/Resources/images/fontAwesome_bugRR.png</iconset>
+   </property>
+   <property name="text">
+    <string>IA-RANSC</string>
+   </property>
+  </action>
+  <action name="actionNDT">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/fontAwesome_bugRG.png</normaloff>:/Resources/images/fontAwesome_bugRG.png</iconset>
+   </property>
+   <property name="text">
+    <string>NDT</string>
+   </property>
+  </action>
+  <action name="actionICP">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/fontAwesome_bugO.png</normaloff>:/Resources/images/fontAwesome_bugO.png</iconset>
+   </property>
+   <property name="text">
+    <string>ICP</string>
+   </property>
+  </action>
+  <action name="actionGaussian">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/fontAwesome_bugGray.png</normaloff>:/Resources/images/fontAwesome_bugGray.png</iconset>
+   </property>
+   <property name="text">
+    <string>Gaussian</string>
+   </property>
+  </action>
+  <action name="actionMLS">
+   <property name="icon">
+    <iconset resource="main_window.qrc">
+     <normaloff>:/Resources/images/fontAwesome_bugG.png</normaloff>:/Resources/images/fontAwesome_bugG.png</iconset>
+   </property>
+   <property name="text">
+    <string>MLS</string>
+   </property>
+  </action>
+  <action name="actionLoad">
+   <property name="text">
+    <string>Load</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QVTKOpenGLNativeWidget</class>
+   <extends>QWidget</extends>
+   <header>qvtkopenglnativewidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="main_window.qrc"/>
+ </resources>
+ <connections/>
+</ui>

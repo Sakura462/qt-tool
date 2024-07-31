@@ -1,0 +1,46 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resources/images/Regiongrowing.png</file>
+        <file>Resources/images/Select.png</file>
+        <file>Resources/images/RemoveSelectPoint.png</file>
+        <file>Resources/images/Add.png</file>
+        <file>Resources/images/Change.png</file>
+        <file>Resources/images/Clear.png</file>
+        <file>Resources/images/Cube.png</file>
+        <file>Resources/images/Frame.png</file>
+        <file>Resources/images/Frontview.png</file>
+        <file>Resources/images/Leftview.png</file>
+        <file>Resources/images/Mesh.png</file>
+        <file>Resources/images/Open.png</file>
+        <file>Resources/images/projection.png</file>
+        <file>Resources/images/Save.png</file>
+        <file>Resources/images/Topview.png</file>
+        <file>Resources/images/about.png</file>
+        <file>Resources/images/admin setting.png</file>
+        <file>Resources/images/admin setting_.png</file>
+        <file>Resources/images/bug.png</file>
+        <file>Resources/images/eglass-glass.png</file>
+        <file>Resources/images/emoji_haha.png</file>
+        <file>Resources/images/exit.png</file>
+        <file>Resources/images/fontAwesome_bug.png</file>
+        <file>Resources/images/fontAwesome_bugG.png</file>
+        <file>Resources/images/fontAwesome_bugGray.png</file>
+        <file>Resources/images/fontAwesome_bugO.png</file>
+        <file>Resources/images/fontAwesome_bugRG.png</file>
+        <file>Resources/images/fontAwesome_bugRR.png</file>
+        <file>Resources/images/fontAwesome_bugY.png</file>
+        <file>Resources/images/help.png</file>
+        <file>Resources/images/iconfont-robot1.png</file>
+        <file>Resources/images/path.png</file>
+        <file>Resources/images/poisson.png</file>
+        <file>Resources/images/robotarm.png</file>
+        <file>Resources/images/savewholescan.png</file>
+        <file>Resources/images/setting.png</file>
+        <file>Resources/images/smooth.png</file>
+        <file>Resources/images/Steering.png</file>
+        <file>Resources/images/Steering1.png</file>
+        <file>Resources/images/Steering2.png</file>
+        <file>Resources/images/telescope.png</file>
+        <file>Resources/images/truth.png</file>
+    </qresource>
+</RCC>
